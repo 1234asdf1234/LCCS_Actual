@@ -2,9 +2,7 @@
 
 
 
-\### Still waiting for the brief to come out
-
-
+!!! Examine the brief attatched !!!
 
 The Actual Project for Leaving Certificate CS
 
