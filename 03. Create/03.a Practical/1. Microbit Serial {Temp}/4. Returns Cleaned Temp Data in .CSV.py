@@ -5,7 +5,7 @@ import time
 ser = serial.Serial()
 ser.baudrate = 115200
 ser.port = "com3"
-#ser.port = "/dev/cu.usbmodem102" # MacBook Only 
+ser.port = "/dev/cu.usbmodem14102" # MacBook Only 
 ser.open()
 
 header = ['Temperature']
