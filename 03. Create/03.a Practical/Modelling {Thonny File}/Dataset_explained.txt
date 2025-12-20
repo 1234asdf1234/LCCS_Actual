@@ -1,0 +1,71 @@
+archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/forestfires.csv
+
+The dataset comes from the research paper:
+Cortez, Paulo and Morais, Aníbal.
+"A Data Mining Approach to Predict Forest Fires using Meteorological Data."
+In Proceedings of the 13th EPIA 2007 – Portuguese Conference on Artificial Intelligence,
+pp. 512–523, 2007.
+It was collected in Montesinho Natural Park, located in the northeast of Portugal.
+The dataset was contributed to the UCI Machine Learning Repository, which is the official public distributor of the data.
+1. X
+Type: Integer
+Meaning: X-axis spatial coordinate (1–9) within the Montesinho park map grid (Portugal).
+Use: Locates the fire event on a coarse grid.
+2. Y
+Type: Integer
+Meaning: Y-axis spatial coordinate (1–9), forming a 9×9 spatial grid together with X.
+Use: Spatial modeling, capturing terrain or regional effects.
+3. month
+Type: Categorical (string: "jan" … "dec")
+Meaning: Month of the fire occurrence.
+Use: Seasonal patterns, weather-dependent risk variations.
+4. day
+Type: Categorical (string: "mon" … "sun")
+Meaning: Day of the week.
+Use: May correlate with human activity (ignitions, suppression).
+5. FFMC
+Type: Numeric
+Meaning: Fine Fuel Moisture Code (FWI component).
+Interpretation: Indicates moisture content of litter and fine fuels;
+Higher = more flammable, dry fine fuels.
+Range in dataset: Typically ~18–101.
+6. DMC
+Type: Numeric
+Meaning: Duff Moisture Code (FWI component).
+Interpretation: Medium-term drying of compact organic layers;
+Higher = drier duff = higher fire potential.
+7. DC
+Type: Numeric
+Meaning: Drought Code (FWI component).
+Interpretation: Long-term dryness of deep fuels;
+Higher = severe drought conditions.
+8. ISI
+Type: Numeric
+Meaning: Initial Spread Index (FWI component).
+Interpretation: Indicates expected initial rate of fire spread;
+Computed from wind + FFMC.
+Higher = faster potential spread.
+9. temp
+Type: Numeric (°C)
+Meaning: Temperature at noon.
+Use: Key predictor of fire risk.
+10. RH
+Type: Numeric (%)
+Meaning: Relative humidity at noon.
+Interpretation:
+Lower RH = drier fuels = higher fire danger.
+11. wind
+Type: Numeric (km/h)
+Meaning: Wind speed at noon.
+Use: Fire spread potential (higher wind → faster spread).
+12. rain
+Type: Numeric (mm/m²)
+Meaning: Rainfall in the last 24 hours.
+Use: Mitigates fire ignition/spread (non-zero values are rare).
+13. area
+Type: Numeric (hectares)
+Meaning: Burned area of the forest fire.
+Notes:
+Many entries are 0, representing very small fires.
+Highly skewed distribution — often modelled with log(1+area).
+Use: The main prediction target for fire severity.
