@@ -12,9 +12,9 @@ for i in df.index:
     df.loc[i, "score"] = Model.scoring(df.loc[i, "month"], df.loc[i, "temp"], df.loc[i, "wind"],
                   df.loc[i, "RH"], df.loc[i, "DMC"], df.loc[i, "DC"], df.loc[i, "FFMC"])
     s = df.loc[i, "score"]
-    if s >= 16:
+    if s <= 45:
         high += 1
-    elif s >= 13:
+    elif s <= 60:
         med += 1
     else:
         low += 1

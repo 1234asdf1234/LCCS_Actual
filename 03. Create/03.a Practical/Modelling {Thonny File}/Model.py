@@ -18,53 +18,63 @@ months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", 
 
 def scoring(month, temp, wind, rh, dmc, dc, ffmc):
     # risk score
-    score = 0
+    score = 100 # this will be changed later according to month factor
 
-    # rule about months
+    ''' 
+    we ignore the month factor in this iteration
+    it will be included in the improved version to meet AR3
+    also, to make changes easier to interpret
+    we deduct points from an initial score when risk factors
+    which meet the requirements
+    '''
+
+    '''
     if month == "mar" or month in months[5:10]: # march, june-october
         score += 5
     elif month not in ["jan", "nov"]: # months with least risk
         score += 1
 
+    '''
+
     # temperature
     if temp > 30:
-        score += 5
+        score -= 30
     elif temp > 25:
-        score += 3
+        score -= 22
     elif temp > 15:
-        score += 2
+        score -= 10
 
     # humidity
     # low relevance thus lower scoring factors
     if rh <= 30:
-        score += 2
+        score -= 9
     elif rh <= 50:
-        score += 1
+        score -= 3
 
     # wind (small impact)
     if wind >= 6:
-        score += 2
+        score -= 8
     elif score >= 4:
-        score += 1
+        score -= 4
 
     # drought (small impact)
-    score += dc * (1/500)
+    score -= dc * (1/125)
 
     # duff (small impact)
-    score += dmc * (1/200)
+    score -= dmc * (1/50)
 
     # litter flammable (large impact)
     if ffmc >= 90:
-        score += 4
+        score -= 20
     elif ffmc >= 80:
-        score += 2
+        score -= 16
 
     score = round(score, 3)
     print(score)
     # evaluating
-    if score >= 16:
+    if score <= 45:
         print("high risk, action needed")
-    elif score >= 13:
+    elif score <= 60:
         print("medium risk")
     else:
         print("low risk")
