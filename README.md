@@ -4,9 +4,9 @@
 
 **list of TODOS:**
 
-_-complete microbit data storing_
-_test the sensors_
-_change model_
-_go through investigation/plan_
-_write "create" document_
-_do flowchart_
+### complete microbit data storing
+### test the sensors
+### change model
+### go through investigation/plan
+### write "create" document
+### do flowchart
