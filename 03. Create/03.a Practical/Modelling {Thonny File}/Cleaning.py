@@ -18,8 +18,13 @@ df.drop("rain", axis=1, inplace=True)
 df.drop("day", axis=1, inplace=True)
 
 # add risk column
+def risk_def(isi, area):
+    if area > 0:
+        return isi * 1.2
+    return isi
+
 for i in df.index:
-    df.loc[i, "risk"] = round(df.loc[i, "ISI"] + df.loc[i, "area"] / 5, 1)
+    df.loc[i, "risk"] = round(risk_def(df.loc[i, "ISI"], df.loc[i, "area"]), 1)
 
 # output cleaned file
 df.to_csv("forestfires_cleaned.csv", index=False)
