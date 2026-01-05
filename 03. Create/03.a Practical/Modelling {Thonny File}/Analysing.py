@@ -39,3 +39,4 @@ fig = px.bar(
     color='month'  
 )
 fig.show()
+
