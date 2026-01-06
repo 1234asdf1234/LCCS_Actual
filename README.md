@@ -6,10 +6,7 @@
 
 ### complete microbit data storing
 ### test the sensors
-#### test model with sensors data (AR1)
-### change model (AR3)
-### model simulation (AR2)
-### go through investigation/plan
 ### write "create" document
 ### do flowchart
+### do BR3 recording
 
