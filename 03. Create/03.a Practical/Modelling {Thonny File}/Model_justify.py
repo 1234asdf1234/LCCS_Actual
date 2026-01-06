@@ -1,4 +1,4 @@
-import Model
+import Model_improved as Model
 import plotly.graph_objects as go
 import pandas as pd
 
@@ -12,9 +12,9 @@ for i in df.index:
     df.loc[i, "score"] = Model.scoring(df.loc[i, "month"], df.loc[i, "temp"], df.loc[i, "wind"],
                   df.loc[i, "RH"], df.loc[i, "DMC"], df.loc[i, "DC"], df.loc[i, "FFMC"])
     s = df.loc[i, "score"]
-    if s <= 45:
+    if s <= 25:
         high += 1
-    elif s <= 60:
+    elif s <= 45:
         med += 1
     else:
         low += 1
@@ -29,7 +29,7 @@ fig.add_trace(go.Scatter(
 ))
 # Labels and Theme
 fig.update_layout(
-    title="Scatter Plot: Humidity against fire risk",
+    title="Scatter Plot: distribution of scores",
     xaxis_title="Humidity",
     yaxis_title="Risk",
     template="plotly_white" # plotly_white
