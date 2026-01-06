@@ -77,3 +77,19 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
         print("low risk")
 
     return score
+
+'''
+use the temperature and rh column colleted from microbit
+to simulate input.
+notice this is recorded in a room
+'''
+# !!! notice to justify how the temp and rh is recorded in transcript
+month = "jul"
+temp = 25 # temperature
+wind = 0.8 # wind, almost none
+rh = 60 # relative humidity
+dmc = 5 # duff
+dc = 50 # drought
+ffmc = 2 # flammable litter
+
+scoring(month, temp, wind, rh, dmc, dc, ffmc)
