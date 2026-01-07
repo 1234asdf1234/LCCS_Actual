@@ -5,10 +5,10 @@
 **list of TODOS:**
 
 ### test the sensors
+_also figure out the problem with light sensors_
 
 ### write "create" document
 
 ### do flowchart
 
-### do BR3 recording
 
