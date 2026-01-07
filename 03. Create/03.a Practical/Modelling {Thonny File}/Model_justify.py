@@ -2,6 +2,11 @@ import Model_improved as Model
 import plotly.graph_objects as go
 import pandas as pd
 
+'''
+Do scoring to every row in the dataset and
+check if fairly distributed
+'''
+
 df = pd.read_csv("forestfires_cleaned.csv")
 
 high = 0
