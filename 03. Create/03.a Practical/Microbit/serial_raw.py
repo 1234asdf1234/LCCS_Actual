@@ -1,5 +1,12 @@
 # test script to investigate the sensor outputs
 
+'''
+temperature: done
+light sensor: differs on microbit chips, found working one (done)
+humidity: pending
+'''
+
+
 import serial
 
 ser = serial.Serial()
