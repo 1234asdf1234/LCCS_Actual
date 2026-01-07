@@ -6,9 +6,10 @@ import time
 
 ser = serial.Serial()
 ser.baudrate = 115200
+# run "mode" in cmd to get this
 ser.port = "com3"
 # run ls /dev/cu.*  to get path below
-ser.port = "/dev/cu.usbmodem14202" # MacBook Only 
+ser.port = "/dev/cu.usbmodem14102" # MacBook Only 
 ser.open()
 
 header = ['temp', 'rh', 'lighting', 'score']
