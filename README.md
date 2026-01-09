@@ -4,10 +4,10 @@
 
 **list of TODOS:**
 
-### test the sensors
-
 ### write "create" document
 
-### do flowchart
+### do flowchart (BR) (AR)
+
+
 
 
