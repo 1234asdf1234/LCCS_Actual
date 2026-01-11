@@ -11,11 +11,11 @@ ser.port = "com3"
 ser.port = "/dev/cu.usbmodem14102" # MacBook Only 
 ser.open()
 
-header = ['temp', 'rh', 'lighting', 'score']
+headers = ['temp', 'rh', 'lighting', 'score']
 # Open the CSV file for writing
 with open('output.csv', 'w', newline='') as csvfile:
     db = csv.writer(csvfile)
-    db.writerow(header)
+    db.writerow(headers)
 
     while True:
         microbitData = str(ser.readline())
@@ -37,9 +37,8 @@ with open('output.csv', 'w', newline='') as csvfile:
         score = cleaned[3]
 
         # Write data to the CSV file
-        db.writerow([temp, rh, lighting, score]) # Square Brackets to create list with single element
-        # Data written to .csv must be in a sequence {An iterable object that can be looped through}.
-        csvfile.flush()  # Flush the data to ensure that it is written to the file
+        db.writerow([temp, rh, lighting, score])
+        csvfile.flush()
         
 time.sleep(5)
 ser.close()
