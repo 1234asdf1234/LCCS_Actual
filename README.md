@@ -6,7 +6,9 @@
 
 ### write "create" document
 
-### do flowchart (BR) (AR)
+### write unit tests
+
+### do transcript for BR1/2
 
 
 
