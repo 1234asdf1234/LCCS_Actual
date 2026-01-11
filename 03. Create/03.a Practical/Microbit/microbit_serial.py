@@ -2,7 +2,6 @@
 
 import csv
 import serial
-import time
 
 ser = serial.Serial()
 ser.baudrate = 115200
@@ -24,11 +23,9 @@ with open('output.csv', 'w', newline='') as csvfile:
         
         cleaned = microbitData
         cleaned = microbitData[3:]
-        # cleaned = cleaned.replace(' ','')
         cleaned = cleaned.replace("'",'')
         cleaned = cleaned.replace('\\r\\n','')
         cleaned = cleaned.replace('\\n', '')
-        # cleaned =int(cleaned) # Not Necessary Always but can't do calculations without int conversion
         print(cleaned)
         
 
