@@ -17,7 +17,23 @@ ffmc = 86.2 # flammable litter
 months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 
 
+# helper to check negative values
+def anyneg(*args):
+    for i in args:
+        if i < 0:
+            return True
+    return False
+
+# main scoring function
 def scoring(month, temp, wind, rh, dmc, dc, ffmc):
+    # terminate scoring if:
+    # - numerical values (except temp) are negative
+    # - month not valid
+    if anyneg(wind, rh, dmc, dc, ffmc)\
+    or (month not in months):
+        print(-1)
+        print("invalid parameter")
+        return -1
     # risk score
     score = 100 # this will be changed later according to month factor
 
@@ -51,7 +67,7 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
     # wind (small impact)
     if wind >= 6:
         score -= 8
-    elif score >= 4:
+    elif wind >= 4:
         score -= 4
 
     # drought (small impact)
@@ -78,3 +94,6 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
         print("low risk")
 
     return score
+
+if __name__ == "__main__":
+    scoring("jul", -temp, wind, rh, dmc, dc, ffmc) 
