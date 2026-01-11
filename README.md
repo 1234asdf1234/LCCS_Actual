@@ -6,10 +6,8 @@
 
 ### write "create" document
 
-### write unit tests
+### do transcript for AR1/2/3
 
-### do transcript for BR1/2
-
-
+### film BR
 
 
