@@ -84,12 +84,13 @@ to simulate input.
 notice this is recorded in a room
 '''
 # !!! notice to justify how the temp and rh is recorded in transcript
-month = "jul"
-temp = 25 # temperature
+month = "jan"
+temp = 29 # temperature
 wind = 0.8 # wind, almost none
-rh = 60 # relative humidity
+rh = 29 # relative humidity
 dmc = 5 # duff
 dc = 50 # drought
 ffmc = 2 # flammable litter
 
-scoring(month, temp, wind, rh, dmc, dc, ffmc)
+if __name__ == "__main__":
+    scoring(month, temp, wind, rh, dmc, dc, ffmc)
