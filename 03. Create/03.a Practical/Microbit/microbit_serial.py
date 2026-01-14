@@ -14,13 +14,16 @@ ser.open()
 headers = ['temp', 'rh', 'lighting', 'score']
 # Open the CSV file for writing
 with open('output.csv', 'w', newline='') as csvfile:
+    # prepare csv writer
     db = csv.writer(csvfile)
     db.writerow(headers)
 
     while True:
+        # read data
         microbitData = str(ser.readline())
         print(microbitData)
         
+        # clean data
         cleaned = microbitData
         cleaned = microbitData[3:]
         cleaned = cleaned.replace("'",'')
@@ -36,9 +39,14 @@ with open('output.csv', 'w', newline='') as csvfile:
         lighting = cleaned[2]
         score = cleaned[3]
 
-        # Write data to the CSV file
-        db.writerow([temp, rh, lighting, score])
-        csvfile.flush()
+        # validate data
+        # make sure rh and lighting >= 0
+        if int(rh) < 0 or int(lighting) < 0:
+            print("invalid data")
+        else:
+            # Write data to the CSV file
+            db.writerow([temp, rh, lighting, score])
+            csvfile.flush()
         
 time.sleep(5)
 ser.close()
