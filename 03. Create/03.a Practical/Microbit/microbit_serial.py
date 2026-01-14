@@ -13,7 +13,7 @@ ser.open()
 
 headers = ['temp', 'rh', 'lighting', 'score']
 # Open the CSV file for writing
-with open('output.csv', 'w', newline='') as csvfile:
+with open('/Users/beriaru/Documents/LCCS_Actual/03. Create/03.a Practical/Microbit/output.csv', 'w', newline='') as csvfile:
     # prepare csv writer
     db = csv.writer(csvfile)
     db.writerow(headers)
@@ -21,7 +21,6 @@ with open('output.csv', 'w', newline='') as csvfile:
     while True:
         # read data
         microbitData = str(ser.readline())
-        print(microbitData)
         
         # clean data
         cleaned = microbitData
