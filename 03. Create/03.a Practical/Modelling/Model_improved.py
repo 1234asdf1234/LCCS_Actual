@@ -2,9 +2,10 @@
 The improved version of model, considering months.
 '''
 
+import datetime
 
 # first row in the dataset
-month = "jul"
+month = "" # to be inputted in demonstration
 temp = 8.2
 wind = 6.7
 rh = 51 # relative humidity
@@ -96,4 +97,6 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
     return score
 
 if __name__ == "__main__":
-    scoring("jul", -temp, wind, rh, dmc, dc, ffmc) 
+    date = datetime.datetime.now() # get current date
+    month = months[date.month-1] # get corresponding month value
+    scoring(month, temp, wind, rh, dmc, dc, ffmc) 
