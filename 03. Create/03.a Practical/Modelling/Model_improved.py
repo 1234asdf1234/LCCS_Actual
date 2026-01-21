@@ -16,7 +16,9 @@ ffmc = 86.2 # flammable litter
 
 # list of months
 months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
-
+months_capital = ['January', 'February', 'March', 'April', 'May', 'June',
+'July', 'August', 'September', 'October', 'November', 'December'
+]
 
 # helper to check negative values
 def anyneg(*args):
@@ -32,9 +34,7 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
     # - month not valid
     if anyneg(wind, rh, dmc, dc, ffmc)\
     or (month not in months):
-        print(-1)
-        print("invalid parameter")
-        return -1
+        scoring_evaluate(-1)
     # risk score
     score = 100 # this will be changed later according to month factor
 
@@ -44,10 +44,12 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
     - if mar-may or oct or dec, score = 90 (medium impact)
     - otherwise score = 100 (no changes)
     '''
-    if month in months[5:9]:
-        score = 80
-    elif month in months[2:5]:
+    
+    impact = month_impact(month)
+    if impact == "slightly decreased":
         score = 90
+    elif impact == "greatly decreased":
+        score = 80
     
 
     # temperature
@@ -84,19 +86,36 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
         score -= 16
 
     score = round(score, 3)
-    print(score)
-    # evaluating
-    # changed in AR3 due to distribution
-    if score <= 25:
-        print("high risk, action needed")
-    elif score <= 45:
-        print("medium risk")
-    else:
-        print("low risk")
-
+    scoring_evaluate(score)
     return score
+
+def scoring_evaluate(score):
+    if score == -1:
+        print("invalid arguments.")
+    else:
+        print(f"the final score is {score}.")
+        print("The model detected ", end="")
+        if score <= 25:
+            print("high risk, action needed.")
+        elif score <= 45:
+            print("medium risk.")
+        else:
+            print("low risk.")
+
+
+def month_impact(m):
+    if m in months[5:9]:
+        return "slightly decreased"
+    elif m in months[2:5]:
+        return "greatly decreased"
+    else:
+        return "stayed the same"
 
 if __name__ == "__main__":
     date = datetime.datetime.now() # get current date
     month = months[date.month-1] # get corresponding month value
+    month_capital = months_capital[date.month-1]
+    print(f"It is now {month_capital}.")
+    print(f"Due to that, the initial score threshold has \
+{month_impact(month)}.")
     scoring(month, temp, wind, rh, dmc, dc, ffmc) 
