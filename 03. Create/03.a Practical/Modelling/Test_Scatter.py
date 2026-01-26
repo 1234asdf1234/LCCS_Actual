@@ -6,7 +6,7 @@ df = pd.read_csv("forestfires_cleaned.csv")
 fig = go.Figure()
 
 fig.add_trace(go.Scatter( 
-    x=df['DC'], # x-axis column data
+    x=df.index, # x-axis column data
     y=df['risk'],  # y=axis column data
     mode='markers', # lines on graph and points on lines
 ))
