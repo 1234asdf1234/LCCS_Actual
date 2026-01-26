@@ -1,6 +1,6 @@
 # AR3
 
-from Model import scoring
+import AR1 as Model
 import csv
 
 print("The programs reads the sample readings and simulates adaptive analysis.")
@@ -18,7 +18,7 @@ with open("sample_readings.csv", 'r') as file:
     for line in csvFile:
         for i in range(1, len(line)): # the first string is month, ignore
             line[i] = float(line[i])
-        score = scoring(*line)
+        score = Model.scoring(*line)
         print(f"This is input number {lines_count+1}.")
         print(f"Compared to input number {lines_count}, the risk has deviated by {round(score-last_score, 2)}.")
         last_score = score

@@ -1,4 +1,4 @@
-import Model # use model from AR1
+import AR1 as Model # use model from AR1
 
 # dummy data, peaceful condition
 # calculate its score and compare to the other two

@@ -1,4 +1,4 @@
-import Model_improved as Model #improved model
+import AR1 as Model 
 import plotly.graph_objects as go
 import pandas as pd
 
