@@ -77,17 +77,22 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
         score -= 16
 
     score = round(score, 3)
-    print(score)
-    # evaluating
-    # changed in AR3 due to distribution
-    if score <= 25:
-        print("high risk, action needed")
-    elif score <= 45:
-        print("medium risk")
-    else:
-        print("low risk")
-
     return score
+
+# seperate the evaluation from scoring function
+def scoring_evaluate(score):
+    if score == -1:
+        print("invalid arguments.")
+    else:
+        print(f"the final score is {score}.")
+        print("The model detected ", end="")
+        if score <= 25:
+            print("high risk, action needed.")
+        elif score <= 45:
+            print("medium risk.")
+        else:
+            print("low risk.")
+
 
 '''
 use the temperature and rh column colleted from microbit
@@ -104,4 +109,8 @@ dc = 50 # drought
 ffmc = 2 # flammable litter
 
 if __name__ == "__main__":
-    scoring(month, temp, wind, rh, dmc, dc, ffmc)
+    print("Microbit data:")
+    print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
+    print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
+    score = scoring(month, temp, wind, rh, dmc, dc, ffmc)
+    scoring_evaluate(score)
