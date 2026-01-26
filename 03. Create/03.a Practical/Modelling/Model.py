@@ -1,7 +1,4 @@
-# Model rules:
-'''
-1. if 
-'''
+# AR1
 
 # first row in the dataset
 month = "jul"
@@ -12,26 +9,39 @@ dmc = 26.2 # duff
 dc = 94.3 # drought
 ffmc = 86.2 # flammable litter
 
+months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 
+# helper to check negative values
+def anyneg(*args):
+    for i in args:
+        if i < 0:
+            return True
+    return False
+
+# main scoring function
 def scoring(month, temp, wind, rh, dmc, dc, ffmc):
+    # terminate scoring if:
+    # - numerical values (except temp) are negative
+    # - month not valid
+    if anyneg(wind, rh, dmc, dc, ffmc)\
+    or (month not in months):
+        print(-1)
+        print("invalid parameter")
+        return -1
     # risk score
     score = 100 # this will be changed later according to month factor
 
     ''' 
-    we ignore the month factor in this iteration
-    it will be included in the improved version to meet AR3
-    also, to make changes easier to interpret
-    we deduct points from an initial score when risk factors
-    which meet the requirements
+    most rules are inherited from AR1, while adding these:
+    - if jun-sep, score = 80 (big impact)
+    - if mar-may or oct or dec, score = 90 (medium impact)
+    - otherwise score = 100 (no changes)
     '''
-
-    '''
-    if month == "mar" or month in months[5:10]: # march, june-october
-        score += 5
-    elif month not in ["jan", "nov"]: # months with least risk
-        score += 1
-
-    '''
+    if month in months[5:9]:
+        score = 80
+    elif month in months[2:5]:
+        score = 90
+    
 
     # temperature
     if temp > 30:
@@ -51,7 +61,7 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
     # wind (small impact)
     if wind >= 6:
         score -= 8
-    elif score >= 4:
+    elif wind >= 4:
         score -= 4
 
     # drought (small impact)
@@ -69,9 +79,10 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
     score = round(score, 3)
     print(score)
     # evaluating
-    if score <= 45:
+    # changed in AR3 due to distribution
+    if score <= 25:
         print("high risk, action needed")
-    elif score <= 60:
+    elif score <= 45:
         print("medium risk")
     else:
         print("low risk")
