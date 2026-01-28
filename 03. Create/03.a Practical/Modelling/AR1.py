@@ -1,13 +1,6 @@
 # AR1
 
-# first row in the dataset
-month = "jul"
-temp = 8.2
-wind = 6.7
-rh = 51 # relative humidity
-dmc = 26.2 # duff
-dc = 94.3 # drought
-ffmc = 86.2 # flammable litter
+import csv
 
 months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 
@@ -109,8 +102,15 @@ dc = 50 # drought
 ffmc = 2 # flammable litter
 
 if __name__ == "__main__":
-    print("Microbit data:")
-    print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
-    print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
-    score = scoring(month, temp, wind, rh, dmc, dc, ffmc)
-    scoring_evaluate(score)
+    # score each row in output.csv
+    with open("/Users/beriaru/Documents/LCCS_Actual/03. Create/03.a Practical/Modelling/output.csv", "r") as csvfile:
+        reader = csv.reader(csvfile)
+        next(reader) # ignore headings
+        for row in reader:
+            temp = float(row[0])
+            rh = float(row[1])           
+            print("Microbit data:")
+            print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
+            print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
+            score = scoring(month, temp, wind, rh, dmc, dc, ffmc)
+            scoring_evaluate(score)
