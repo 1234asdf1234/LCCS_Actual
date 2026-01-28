@@ -1,7 +1,4 @@
-'''
-The improved version of model, considering months.
-'''
-
+# AR1
 
 # first row in the dataset
 month = "jul"
@@ -12,10 +9,7 @@ dmc = 26.2 # duff
 dc = 94.3 # drought
 ffmc = 86.2 # flammable litter
 
-
-# list of months
 months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
-
 
 # helper to check negative values
 def anyneg(*args):
@@ -83,17 +77,40 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
         score -= 16
 
     score = round(score, 3)
-    print(score)
-    # evaluating
-    # changed in AR3 due to distribution
-    if score <= 25:
-        print("high risk, action needed")
-    elif score <= 45:
-        print("medium risk")
-    else:
-        print("low risk")
-
     return score
 
+# seperate the evaluation from scoring function
+def scoring_evaluate(score):
+    if score == -1:
+        print("Invalid arguments.")
+    else:
+        print(f"The final score is {score}.")
+        print("The model detected ", end="")
+        if score <= 25:
+            print("high risk, action needed.")
+        elif score <= 45:
+            print("medium risk.")
+        else:
+            print("low risk.")
+
+
+'''
+use the temperature and rh column colleted from microbit
+to simulate input.
+notice this is recorded in a room
+'''
+# !!! notice to justify how the temp and rh is recorded in transcript
+month = "jan"
+temp = 29 # temperature
+wind = 0.8 # wind, almost none
+rh = 29 # relative humidity
+dmc = 5 # duff
+dc = 50 # drought
+ffmc = 2 # flammable litter
+
 if __name__ == "__main__":
-    scoring("jul", -temp, wind, rh, dmc, dc, ffmc) 
+    print("Microbit data:")
+    print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
+    print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
+    score = scoring(month, temp, wind, rh, dmc, dc, ffmc)
+    scoring_evaluate(score)
