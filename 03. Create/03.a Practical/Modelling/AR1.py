@@ -82,9 +82,9 @@ def scoring(month, temp, wind, rh, dmc, dc, ffmc):
 # seperate the evaluation from scoring function
 def scoring_evaluate(score):
     if score == -1:
-        print("invalid arguments.")
+        print("Invalid arguments.")
     else:
-        print(f"the final score is {score}.")
+        print(f"The final score is {score}.")
         print("The model detected ", end="")
         if score <= 25:
             print("high risk, action needed.")
