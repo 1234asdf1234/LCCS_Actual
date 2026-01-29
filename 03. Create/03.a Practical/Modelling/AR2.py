@@ -26,6 +26,7 @@ print(f"When drought occurs, score is {score_drought}")
 print(f"Deviated by {round(score_drought-score_original, 3)}")
 
 # "what if temperature rises drastically"
+dc = 94.3 # reset dc
 temp = 35
 score_temp = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)
 print("What if 2: drastic temperature rise")
