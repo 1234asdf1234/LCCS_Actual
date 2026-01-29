@@ -15,6 +15,7 @@ print("Baseline: a mild day")
 print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
 print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
 print(f"The original score is {score_original}")
+Model.scoring_evaluate(score_original)
 
 # "what if severe drought occurs"
 dc = 800
@@ -23,13 +24,16 @@ print("What if 1: severe drought")
 print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
 print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
 print(f"When drought occurs, score is {score_drought}")
+Model.scoring_evaluate(score_drought)
 print(f"Deviated by {round(score_drought-score_original, 3)}")
 
 # "what if temperature rises drastically"
+dc = 94.3 # reset dc
 temp = 35
 score_temp = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)
 print("What if 2: drastic temperature rise")
 print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
 print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
 print(f"When temperature rises drastically, score is {score_temp}")
+Model.scoring_evaluate(score_temp)
 print(f"Deviated by {round(score_temp-score_original, 3)}")
