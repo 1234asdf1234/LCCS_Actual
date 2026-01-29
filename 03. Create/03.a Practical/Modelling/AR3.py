@@ -19,8 +19,11 @@ with open("sample_readings.csv", 'r') as file:
         for i in range(1, len(line)): # the first string is month, ignore
             line[i] = float(line[i])
         score = Model.scoring(*line)
+        print("-----------------------------------------------")
         print(f"This is input number {lines_count+1}.")
+        Model.scoring_evaluate(score)
         print(f"Compared to input number {lines_count}, the risk has deviated by {round(score-last_score, 2)}.")
+        print("\n")
         last_score = score
         lines_count += 1
 
