@@ -21,7 +21,7 @@ print("\n")
 # "what if severe drought occurs"
 # here the humidity and drought code will change
 dc = 800
-rh = 20
+rh = 15
 
 score_drought = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)
 print("-----------------------------------------------")
@@ -40,7 +40,7 @@ rh = 51
 # temperature, humidity and wind will change
 
 temp = 35
-rh = 32
+rh = 25
 wind = 1.7
 
 score_temp = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)

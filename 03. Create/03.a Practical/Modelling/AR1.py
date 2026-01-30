@@ -81,7 +81,7 @@ def scoring_evaluate(score):
         print("The model detected ", end="")
         if score <= 25:
             print("high risk, action needed.")
-        elif score <= 45:
+        elif score <= 50:
             print("medium risk.")
         else:
             print("low risk.")
