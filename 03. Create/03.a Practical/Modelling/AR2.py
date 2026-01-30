@@ -19,7 +19,10 @@ Model.scoring_evaluate(score_original)
 print("\n")
 
 # "what if severe drought occurs"
+# here the humidity and drought code will change
 dc = 800
+rh = 20
+
 score_drought = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)
 print("-----------------------------------------------")
 print("What if 1: severe drought")
@@ -29,9 +32,17 @@ Model.scoring_evaluate(score_drought)
 print(f"Deviated by {round(score_drought-score_original, 3)}")
 print("\n")
 
+# reset arguments
+dc = 94.3
+rh = 51
+
 # "what if temperature rises drastically"
-dc = 94.3 # reset dc
+# temperature, humidity and wind will change
+
 temp = 35
+rh = 32
+wind = 1.7
+
 score_temp = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)
 print("-----------------------------------------------")
 print("What if 2: drastic temperature rise")
