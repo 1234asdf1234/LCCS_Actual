@@ -22,15 +22,18 @@ with open('output.csv', 'w', newline='') as csvfile:
         print(microbitData)
         
         cleaned = microbitData
+        # removes prefix junk characters
         cleaned = microbitData[3:]
         cleaned = cleaned.replace("'",'')
         cleaned = cleaned.replace('\\r\\n','')
+        # may occur on specific platforms, take into account
         cleaned = cleaned.replace('\\n', '')
         print(cleaned)
         
-
+        # splitting works due to spaces are preserved
         cleaned = cleaned.split(" ")
     
+        # assign elements into variables
         temp = cleaned[0]
         rh = cleaned[1]
         lighting = cleaned[2]
