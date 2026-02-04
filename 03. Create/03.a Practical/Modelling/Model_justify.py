@@ -19,7 +19,7 @@ for i in df.index:
     s = df.loc[i, "score"]
     if s <= 25:
         high += 1
-    elif s <= 45:
+    elif s <= 50:
         med += 1
     else:
         low += 1
@@ -27,17 +27,16 @@ for i in df.index:
 fig = go.Figure()
 
 fig.add_trace(go.Scatter( 
-    x=df.index, # x-axis column data
-    y=df['score'],  # y=axis column data
-    mode='markers', # lines on graph and points on lines
-    #name='Heart Rate'
+    x=df.index,
+    y=df['score'], 
+    mode='markers',
 ))
 # Labels and Theme
 fig.update_layout(
     title="Scatter Plot: distribution of scores",
     xaxis_title="Humidity",
     yaxis_title="Risk",
-    template="plotly_white" # plotly_white
+    template="plotly_white" # plotly_dark
 )
 fig.show() # Show Chart
 
