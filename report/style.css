@@ -22,7 +22,9 @@
 }
 
 .navbar a{
-    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color:white;
     text-decoration: none;
     background-color: teal;
@@ -53,5 +55,5 @@ iframe{
 .video-container{
     display: flex;
     justify-content: center;
- 
+    
 }   
