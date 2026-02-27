@@ -4,10 +4,11 @@
 
 **list of TODOS:**
 
-### write "create" document
+### Write up "Evaluate"
 
-### do transcript for AR1/2/3
+### Write up "Meeting Brief" description
 
-### film BR
+### Organise html
 
+### word count
 
