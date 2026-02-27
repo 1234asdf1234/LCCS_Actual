@@ -3,154 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css" <title>pao</title>
+    <link rel="stylesheet" href="style.css">
+ <title>Project Report</title>
 </head>
 
 <body>
-    <h1>Meeting the brief</h1>
-    <div class="tempblock">
-        <p>The video</p>
-    </div>
-    <div id="investigation">
-        <h1>Investigation</h1>
-        <h2>Investigating The Brief </h2>
-        <p>Forests support critical ecological balance by filtering water, providing oxygen through photosynthesis, etc.
-            <br><br>
-            Wildfires have been increasingly pervasive factor in causing forest loss <a href="#r1">[1]</a>. They have
-            received great attention
-            throughout the world and being monitored in a variety of ways <a href="#r2">[2]</a>.
-            <br><br>
-            People have been estimating the probability of wildfires using different models. Some private institutions
-            manage to calculate “Fire radiative power” for the area at concern, i.e., speed of fuel consumption, to
-            predict the risk. Global collaboration on the topic is also taking place, which provides information such as
-            burnt areas and real-time fire reports, to conclude a set of fire forecasts <a href="#r3">[3]</a>.
-            <br><br>
-            Some environmental factors such as moisture affect fire risk directly, by providing suitable conditions for
-            flames to occur. Other factors, such as light, imply these factors, e.g., lower light intensity may be cause
-            by clouds, potentially leads to cooler and wetter environments.
-            <br><br>
-            I have been intrigued to investigate wildfire risks by using both kinds of environmental factors, e.g.,
-            moisture, light, temperature to simulate the probability of wildfire happening in one specific area. I will
-            then build a rule-based model to summarise both environmental and artificial factors in relation to wildfire
-            risks.
-        </p>
-        <h2>Existing Solutions</h2>
-        <p>NASA has provided a fire information system. It uses satellite data to gather the distribution, duration and
-            other key information of wildfires in real time. Then, it uses rule-based modelling to predict fire risks.
-            E.g., places near detected fires are more likely to be ignited. It provides an accurate and comprehensive
-            view of wildfire status. However, it may not respond in time, as satellites can only scan when they are
-            above the target area, creating temporal time gaps.
-            <br><br>
-            Apart from satellites, Unmanned aerial vehicles (UAVs) equipped with optical or thermal cameras are also
-            used to detect and model fire risk. These vehicles can not only monitor factors such as humidity but also
-            move in specially designed routes to get data from more areas. Similarly, they also use rule-based modelling
-            to predict the risk in selected areas. A great advantage is its temporal flexibility, allowing surveillance
-            with least latency. But they also suffer from low flight durations (approx. 3hrs) and risk of being damaged
-            <a href="#r4">[4]</a>..
-            <br><br>
-            Private tech companies such as Ororatech have created complex models which simulate the fire spread. It
-            includes many advanced factors such as elevation from satellite data and geographical maps, uses a range of
-            mathematical models and rule-based models to give detailed predictions. One big advantage is that it
-            provides hourly forecast up to 12 hours. However, it is aimed commercially, meaning it requires substantial
-            calculating power and a high price <a href="#r5">[5]</a>..
-        </p>
-        <h2>Research Informed Decision</h2>
-        <p>
-            As my research showed, we need a solution with frequent monitoring of environmental factors and requires
-            less calculating power. I decide to collect temperature, humidity and light intensity data from the
-            environment, as they are easy to be monitored. 
-            <br><br>
-            I am inspired to simulate a situation where heat rises rapidly. This comes from the NASA satellite map
-            that numerous fires occur in low-latitude areas, where heat-rising situations are prevalent. 
-            <br><br>
-            I chose rule-based modelling as my research showed various influences the environmental factors have on
-            wildfires. A range of simple rules can generally represent all these influences. 
-        </p>
-        <h2>Final Idea</h2>
-        <p>I decided to build an embedded system and a model which measures several tangible factors of wildfires, to
-            predict the risk and warn the users.
-            <br><br>
-            One limitation is that the embedded system can only monitor and reflect status of a limited area.
-        </p>
-    </div>
+    
+<h1>Leaving Certificate Computer Science Project 2026</h1>
+</br>
+	<a href="./meeting_the_brief.html">Meeting the Brief</a>
+	<a href="./investigation.html">Investigation Stage</a>
+	<a href="./plan_and_design.html">Plan and Design Stage</a>
+
     <br><br>
-    <div id="plan and design">
-        <h1>Plan and Design</h1>
-        <h2>Purpose</h2>
-        <p>The purpose of my system is to monitor environmental conditions in forests that contribute to wildfire risk
-            (temperature, humidity, light) and provide early warnings when dangerous thresholds are exceeded. A
-            Python-based model will predict fire risk over time by analysing patterns in collected data and adapting
-            predictions as new environmental data becomes available.  </p>
-        <h2>Design Objectives</h2>
-        <p>I will include environmental sensors such as humidity, temperature and light speed, and can be turned on or
-            off by buttons on the micro: bit. I will then calculate and display the risk score on LED screen and alert
-            using buzzer if risk is not low. (BR1)  
-            <br><br>
-            Then, I will record sensor data and risk level using serial connection periodically, in the rate of 2
-            seconds per row. (BR2)  
-            <br><br>
-            To simulate a forest-related risk over time, I will gradually increase the temperature around the micro: bit
-            gradually to above 40°C, and observe how the system updates the risk level, with the output showing the risk
-            score increasing as temperature readings worsen. (BR3) 
-            <br><br>
-             After that, I will create a rule-based model realised by a scoring system, used to predict wildfire risk
-            with consideration of more factors, such as amount of flammable litter. I will also send a set of data from
-            the micro: bit to the model and analyse it. (AR1) 
-            <br><br>
-             I will simulate sets of data will represent situations like “what if there is severe drought?" and “what if
-            the temperature rises drastically?”. Next, I will input into the model to see if there is a change in risk.
-            (AR2)  
-            <br><br>
-            Finally, I will read a CSV file containing time-stamped input data, calculate the risks, and compare them
-            with the previous results. (AR3) 
-        </p>
-        <h2>Project Options</h2>
-        <p>I have considered two options of data collection, one being alert-triggered and the other being regular
-            records. 
-            <br><br>
-            Alert-triggered logging outputs data via serial connection only when the risk score is above a threshold,
-            e.g. alert every time when score jumps from 2 to 3. The benefits include avoiding redundant data. However,
-            it is possible that no data is being logged for a long period, making the logging system unresponsive.  
-            <br><br>
-            Time-based logging outputs data repeatedly after a specified period, e.g. output a line every 2 seconds. It
-            offers a direct overview of the status all the time, and the data is suitable for further analysis even if
-            no fire risk appears. On the other hand, it may store too much unused data, using storage unnecessarily. 
-        </p>
-        <h2>Justification of Design Choices</h2>
-        <p>I choose time-base logging for several reasons. It gives the ability to test the system’s ability to record
-            and store data under normal conditions such as room temperature. It also provides suitable data for the
-            model to predict the risk with further consideration.  It also allows me to debug the data-logging function
-            more easily. </p>
-        <h2>Stakeholders and End Users</h2>
-        <p>The stakeholders of this system include researchers and organizations who are interested in the fire risk of
-            the selected area. They need regularly collected data and a sample method to predict the fire risk.  They
-            can utilize the data collected to model the fire risk according to their own understanding. The system
-            provides time-based logging of sensor data, and a modelling interpretation that presents analysis in a
-            comprehensible way.  
-            <br><br>
-            The end users are teachers or travel organisers who are interested in fire probabilities. These people need
-            a simple way of measuring if the selected area is safe for outdoor activities. The system and model can help
-            them predict it easily. 
-        </p>
-        <h2>Technologies that Will Be Used:</h2>
-        <h3>Hardware:</h3>
-        <p>Micro: bit – Tool for collecting environmental data and return feedback adaptively.  Suitable because it is
-            low-cost and designed for environmental sensing.
-            <br><br>
-            Sensors: (moisture sensor, temperature (inside micro: bit), light detector) – connected to micro: bit to
-            measure environmental data. Suitable for measuring data in forests.
-        </p>
-        <h3>Software:</h3>
-        <p>Microsoft MakeCode: program the micro: bit to monitor and respond to environment.  Suitable for coding the
-            micro: bit structurally.
-            <br><br>
-            Python: used to read and store data and present the model in software form.  Suitable for presenting logic
-            in form of runnable code.
-        </p>
-        <h3>Data Collection and Storage:  </h3>
-        <p>CSV files: data from micro: bit and modelling data will be stored in this format.  Suitable for storing
-            simple data. </p>
-    </div>
+    
     <div id="references">
         <h1>References</h1>
         <b id="r1">[1] - Copernicus (n.d.). Global fire monitoring | Copernicus. [online] atmosphere.copernicus.eu.

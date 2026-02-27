@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+ <title>Investigation</title>
+</head>
+
+<body>
+
+<div id="investigation">
+        <h1>Investigation</h1>
+        <h2>Investigating The Brief </h2>
+        <p>Forests support critical ecological balance by filtering water, providing oxygen through photosynthesis, etc.
+            <br><br>
+            Wildfires have been increasingly pervasive factor in causing forest loss <a href="#r1">[1]</a>. They have
+            received great attention
+            throughout the world and being monitored in a variety of ways <a href="#r2">[2]</a>.
+            <br><br>
+            People have been estimating the probability of wildfires using different models. Some private institutions
+            manage to calculate “Fire radiative power” for the area at concern, i.e., speed of fuel consumption, to
+            predict the risk. Global collaboration on the topic is also taking place, which provides information such as
+            burnt areas and real-time fire reports, to conclude a set of fire forecasts <a href="#r3">[3]</a>.
+            <br><br>
+            Some environmental factors such as moisture affect fire risk directly, by providing suitable conditions for
+            flames to occur. Other factors, such as light, imply these factors, e.g., lower light intensity may be cause
+            by clouds, potentially leads to cooler and wetter environments.
+            <br><br>
+            I have been intrigued to investigate wildfire risks by using both kinds of environmental factors, e.g.,
+            moisture, light, temperature to simulate the probability of wildfire happening in one specific area. I will
+            then build a rule-based model to summarise both environmental and artificial factors in relation to wildfire
+            risks.
+        </p>
+        <h2>Existing Solutions</h2>
+        <p>NASA has provided a fire information system. It uses satellite data to gather the distribution, duration and
+            other key information of wildfires in real time. Then, it uses rule-based modelling to predict fire risks.
+            E.g., places near detected fires are more likely to be ignited. It provides an accurate and comprehensive
+            view of wildfire status. However, it may not respond in time, as satellites can only scan when they are
+            above the target area, creating temporal time gaps.
+            <br><br>
+            Apart from satellites, Unmanned aerial vehicles (UAVs) equipped with optical or thermal cameras are also
+            used to detect and model fire risk. These vehicles can not only monitor factors such as humidity but also
+            move in specially designed routes to get data from more areas. Similarly, they also use rule-based modelling
+            to predict the risk in selected areas. A great advantage is its temporal flexibility, allowing surveillance
+            with least latency. But they also suffer from low flight durations (approx. 3hrs) and risk of being damaged
+            <a href="#r4">[4]</a>..
+            <br><br>
+            Private tech companies such as Ororatech have created complex models which simulate the fire spread. It
+            includes many advanced factors such as elevation from satellite data and geographical maps, uses a range of
+            mathematical models and rule-based models to give detailed predictions. One big advantage is that it
+            provides hourly forecast up to 12 hours. However, it is aimed commercially, meaning it requires substantial
+            calculating power and a high price <a href="#r5">[5]</a>..
+        </p>
+        <h2>Research Informed Decision</h2>
+        <p>
+            As my research showed, we need a solution with frequent monitoring of environmental factors and requires
+            less calculating power. I decide to collect temperature, humidity and light intensity data from the
+            environment, as they are easy to be monitored. 
+            <br><br>
+            I am inspired to simulate a situation where heat rises rapidly. This comes from the NASA satellite map
+            that numerous fires occur in low-latitude areas, where heat-rising situations are prevalent. 
+            <br><br>
+            I chose rule-based modelling as my research showed various influences the environmental factors have on
+            wildfires. A range of simple rules can generally represent all these influences. 
+        </p>
+        <h2>Final Idea</h2>
+        <p>I decided to build an embedded system and a model which measures several tangible factors of wildfires, to
+            predict the risk and warn the users.
+            <br><br>
+            One limitation is that the embedded system can only monitor and reflect status of a limited area.
+        </p>
+    </div>
+
+    <div id="references">
+        <h1>References</h1>
+        <b id="r1">[1] - Copernicus (n.d.). Global fire monitoring | Copernicus. [online] atmosphere.copernicus.eu.
+            Available at: https://atmosphere.copernicus.eu/global-fire-monitoring.</b>
+        <br><br>
+        <b id="r2">[2] - Copernicus and NASA (2018). GWIS - Global Wildfire Information System (GWIS). [online]
+            Europa.eu. Available at: https://gwis.jrc.ec.europa.eu/</b>
+        <br><br>
+        <b id="r3">[3] - MacCarthy, J., Tyukavina, S., Weisse, M., Harris, N. and Richter, J. (2024). New Data Confirms:
+            Forest Fires Are Getting Worse. www.wri.org. [online] Available at:
+            https://www.wri.org/insights/global-trends-forest-fires.</b>
+        <br><br>
+        <b id="r4">[4] - Zhai, G., Dou, L., Gu, Y., Zhou, H., Feng, L., Jiang, L., Dong, J., Sun, J. and Li, H. (2025).
+            From spark to suppression: An overview of wildfire monitoring, progression prediction, and extinguishing
+            techniques. International Journal of Applied Earth Observation and Geoinformation, 140,
+            p.104600.https://doi.org/10.1016/j.jag.2025.104600.</b>
+        <br><br>
+        <b id="r5">[5] - OroraTech. (2025). Fire Spread. [online] Available at:
+            https://ororatech.com/all-products/fire-spread</b>
+
+    </div>
+
+</body>
+</html>
