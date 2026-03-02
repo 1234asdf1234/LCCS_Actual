@@ -7,6 +7,13 @@ test3 = [8, 5, 8, 10]        # boundary case
 test4 = [8, 0, 0, 0]         # invalid case
 test5 = [5000, 37, 100, 95]  # stress case
 
+'''
+To test one set of arguments, first use the generator to 
+write up a .csv file using the generator,
+then use this validate function to ensure the
+number of lines and data ranges are correct
+'''
+
 def validate(expected_lines):
     actual_lines = 0
     with open("/Users/beriaru/Documents/LCCS_Actual/03. Create/03.a Practical/Modelling/sample_readings.csv", "r") as csvfile:
@@ -41,7 +48,7 @@ sample_generate(*test3)
 print(validate(8))
 
 sample_generate(*test4)
-print(validate(8))
+print(validate(0))
 
 sample_generate(*test5)
 print(validate(5000))

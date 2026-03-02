@@ -5,6 +5,10 @@ headers = ['month', 'temp', 'wind', 'rh', 'dmc', 'dc', 'ffmc']
 
 months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 
+'''
+generate lines of sample sensor readings,
+providing the upper boundaries
+'''
 def sample_generate(lines, temp_upper=35, wind_upper=58, rh_upper=90):
     with open("/Users/beriaru/Documents/LCCS_Actual/03. Create/03.a Practical/Modelling/sample_readings.csv", "w") as csvfile:
         if temp_upper < 5 or wind_upper < 8 or rh_upper < 10:
