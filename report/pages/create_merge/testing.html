@@ -12,7 +12,7 @@
             padding: 20px; 
             color: #333; 
         }
-
+        
         
         /* Table styles maintained for readability */
         table {
@@ -35,14 +35,14 @@
 <body>
     <h2>Testing</h2>
     <p>I did white-box testing for two critical parts of my code.</p>
-
+    
     <h3>Test 1 – Improved Model (Integration Test) </h3>
     <p>The scoring function is integrated with the evaluation function. The scoring function takes in several environmental factors and evaluate the score, then the evaluation function outputs the risk level. Several restrictions include:</p>
     <ul>
         <li>Considering real-life factors, several parameters should always be positive.</li>
         <li>To show the user an error has been made, it will return score of -1 (cannot be achieved in normal conditions) and alert “invalid parameter”. </li>
     </ul>
-
+    
     <h4>Definitions:</h4>
     <h4>Testing Code:</h4>
     <h4>Test Table:</h4>
@@ -84,7 +84,7 @@
         </tr>
     </table>
     <p>The results are satisfying as the model can now handle different types of inputs and give reasonable responses. </p>
-
+    
     <h3 class="success-title">Test 2 – sample data generator (Unit Test) </h3>
     <p>The sample data generator will take in the lines to be generated and the upper limits of factors temperature, wind and relative humidity. It writes a .csv file containing sample data to be read in AR3. </p>
     <p>The generator must handle invalid upper boundaries by refusing to generate and being efficient enough to generate large number of lines. </p>

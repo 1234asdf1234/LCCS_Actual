@@ -34,24 +34,24 @@
     </style>
 </head>
 <body>
-
+    
     <h2>Purpose</h2>
     <p>The model intends to predict the risk of wildfire occurring in a specific area, given several environmental factors.</p>
-
+    
     <hr>
-
+    
     <h2>Process</h2>
     <p><strong>Input:</strong> the user input the Fine Fuel Moisture Code (FFMC), Duff Moisture Code (DMC), Drought Code (DC), Relative Humidity (RH), Temperature (temp) and month of the selected area.</p>
     <p><strong>Calculation:</strong> the model starts with a base score of 100, then deduct scores based on threshold values for each component. For example, if temperature is greater than 40, then score is reduced by 30.</p>
     <p><strong>Output:</strong> the model interprets if the final score represents high/moderate/low risk, based on threshold values.</p>
-
+    
     <hr>
-
+    
     <h2>Input/Output Sources</h2>
     <p>An online dataset is used to model the risk. It contains a range of environmental factors and special components (ISI, burnt area) which allows me to assign a risk attribute to each row. The model is tested with data recorded by the micro: bit. The temperature and relative humidity recorded is mixed with other pre-set factors, which simulates room environment.</p>
-
+    
     <hr>
-
+    
     <h2>Calculation Logic</h2>
     <ul>
         <li>Start with full score of 100</li>
@@ -63,12 +63,12 @@
         <li>If FFMC is above 80 / 90, reduce 16 / 20 marks</li>
         <li>Round the score to 3 decimal places</li>
     </ul>
-
+    
     <hr>
-
+    
     <h2>Output Explanation</h2>
     <p>According to my dataset, I need a fair distribution of risk levels. I decided to set score &lt;= 25 be high risk and score &lt;= 50 be moderate risk, and the rest be low risk.</p>
-
+    
     <h3>Distribution</h3>
     <p>The following table:</p>
     <table>
@@ -94,11 +94,11 @@
         </tr>
     </table>
     <p>According to the graph and chart, this is a fair threshold.</p>
-
+    
     <hr>
-
+    
     <h2>Code</h2>
     <h3>Scoring and evaluating function</h3>
     <h3>Distribution check</h3>
-    </body>
+</body>
 </html>

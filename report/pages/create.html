@@ -4,12 +4,80 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style.css">
     <title>Create</title>
-    <script>
-function resizeIframe(obj) {
-    // Set the height of the iframe to the height of the content inside it
-    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-  }
-    </script>
+    <style>
+        /* Unified Global Aesthetics */
+        body { 
+            font-family: sans-serif; 
+            line-height: 1.6; 
+            padding: 20px; 
+            color: #333; 
+            background-color: #fff;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* Consistent Heading Styles */
+        h2 { 
+            color: #2c3e50; 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 10px; 
+            margin-top: 40px;
+        }
+        h3 { 
+            color: #e74c3c; 
+            margin-top: 25px; 
+        }
+        h4 { 
+            color: #555; 
+            margin-bottom: 5px; 
+        }
+        
+        /* Success Green for specific titles */
+        .success-title { color: #27ae60 !important; }
+        
+        /* Unified Table Styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
+        
+        /* Specific Table Adjustments */
+        #milestones-section th { width: 15%; }
+        .outcome-row th { color: #27ae60; }
+        
+        /* Code and Mock Formatting */
+        .code-mock { 
+            background: #f4f4f4; 
+            border: 1px solid #ddd; 
+            padding: 10px; 
+            font-family: monospace; 
+            display: block; 
+            margin: 10px 0; 
+        }
+        
+        /* Horizontal Rule */
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 30px 0;
+        }
+        
+        section { margin-bottom: 40px; }
+    </style>
+    
+    
 </head>
 
 <body>
@@ -23,8 +91,291 @@ function resizeIframe(obj) {
         <a href="../pages/references.html">References</a>
     </nav>
     
-    <iframe src="./create_merge/milestones.html" onload="resizeIframe(this)" scrolling="no" ></iframe>
+    <h1>Create Stage</h1>
     
-    
-</body>
-</html>
+    <section id="milestones-section">
+        <h2>Milestone Logs</h2>
+        <p>I specified the details for each step and reviewed the outcomes at the end.</p>
+        
+        <table>
+            <tr>
+                <th>Detail</th>
+                <td>I began to code the micro: bit without using any sensors.</td>
+            </tr>
+            <tr class="outcome-row">
+                <th>Outcome</th>
+                <td>The embedded system can now score the input after a specific time interval, and alert based on the score.</td>
+            </tr>
+            
+            <tr>
+                <th>Detail</th>
+                <td>I improved the micro: bit code and wrote python code for serial transmission.</td>
+            </tr>
+            <tr class="outcome-row">
+                <th>Outcome</th>
+                <td>The embedded system can send the sensor data and calculated score to the computer and store it in a .csv file.</td>
+            </tr>
+            
+            <tr>
+                <th>Detail</th>
+                <td>I cleaned my data prepared for the model, gave a rule to calculate fire risks, and calculated the relationships between the factors and the fire risk.</td>
+            </tr>
+            <tr class="outcome-row">
+                <th>Outcome</th>
+                <td>I have the figures to prepare for the rules in my model.</td>
+            </tr>
+            
+            <tr>
+                <th>Detail</th>
+                <td>I created the scoring rules for the model, implemented it, then tested its validity by inputting data from the micro: bit to ensure that the results are evenly distributed.</td>
+            </tr>
+            <tr class="outcome-row">
+                <th>Outcome</th>
+                <td>the model can evaluate fire risk in a reasonable way.</td>
+            </tr>
+            
+            <tr>
+                <th>Detail</th>
+                <td>I wrote sample data to adapt the “what-if” conditions and wrote a python program to compare them to the baseline.</td>
+            </tr>
+            <tr class="outcome-row">
+                <th>Outcome</th>
+                <td>my model successfully answered the what-if questions in the plan and design stage.</td>
+            </tr>
+            
+            <tr>
+                <th>Detail</th>
+                <td>I wrote a program to generate sample data to simulate regular input entries from sensors. <br><br>
+                    I then used another program to use the model to visualise how each entry has changed from the previous one.</td>
+                </tr>
+                <tr class="outcome-row">
+                    <th>Outcome</th>
+                    <td>I completed the adaptive feature.</td>
+                </tr>
+                
+                <tr>
+                    <th>Detail</th>
+                    <td>I filled the placeholders left in step 1 to be sensor data, monitored regularly.</td>
+                </tr>
+                <tr class="outcome-row">
+                    <th>Outcome</th>
+                    <td>the embedded system now fulfils all requirements in my specification.</td>
+                </tr>
+                
+                <tr>
+                    <th>Detail</th>
+                    <td>I cleaned and commented my python code.</td>
+                </tr>
+                <tr class="outcome-row">
+                    <th>Outcome</th>
+                    <td>the code is now more comprehensible.</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="testing-section">
+            <h2>Testing</h2>
+            <p>I did white-box testing for two critical parts of my code.</p>
+            
+            <h3>Test 1 – Improved Model (Integration Test) </h3>
+            <p>The scoring function is integrated with the evaluation function. The scoring function takes in several environmental factors and evaluate the score, then the evaluation function outputs the risk level. Several restrictions include:</p>
+            <ul>
+                <li>Considering real-life factors, several parameters should always be positive.</li>
+                <li>To show the user an error has been made, it will return score of -1 (cannot be achieved in normal conditions) and alert “invalid parameter”. </li>
+            </ul>
+            
+            <h4>Definitions:</h4>
+            <h4>Testing Code:</h4>
+            <h4>Test Table:</h4>
+            <table>
+                <tr>
+                    <th>Description</th>
+                    <th>Data</th>
+                    <th>Expected result</th>
+                    <th>Actual Result</th>
+                    <th>Passed</th>
+                </tr>
+                <tr>
+                    <td>Negative wind speed</td>
+                    <td>["jan", 2, -2.5, 34, 26.2, 92, 84.3]</td>
+                    <td>Invalid arguments.</td>
+                    <td>Invalid arguments.</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Normal</td>
+                    <td>["jul", 8.2, 6.7, 51, 26.2, 94.3, 86.2]</td>
+                    <td>The final score is 54.722.<br>The model detected low risk.</td>
+                    <td>The final score is 54.722.<br>The model detected low risk.</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Boundary</td>
+                    <td>["jan", 0, 0, 0, 0, 0, 0]</td>
+                    <td>The final score is 91.0.<br>The model detected low risk.</td>
+                    <td>The final score is 91.0.<br>The model detected low risk.</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Negative temperature</td>
+                    <td>["jul", -8.2, 6.7, 51, 26.2, 94.3, 86.2]</td>
+                    <td>The final score is 54.722.<br>The model detected low risk.</td>
+                    <td>The final score is 54.722.<br>The model detected low risk.</td>
+                    <td>Yes</td>
+                </tr>
+            </table>
+            <p>The results are satisfying as the model can now handle different types of inputs and give reasonable responses. </p>
+            
+            <h3 class="success-title">Test 2 – sample data generator (Unit Test) </h3>
+            <p>The sample data generator will take in the lines to be generated and the upper limits of factors temperature, wind and relative humidity. It writes a .csv file containing sample data to be read in AR3. </p>
+            <p>The generator must handle invalid upper boundaries by refusing to generate and being efficient enough to generate large number of lines. </p>
+            <h4>Definitions:</h4>
+            <h4>Testing Code:</h4>
+            <h4>Test Table:</h4>
+            <table>
+                <tr>
+                    <th>Description</th>
+                    <th>Data</th>
+                    <th>Expected Result</th>
+                    <th>Actual Result</th>
+                    <th>Passed</th>
+                </tr>
+                <tr>
+                    <td>Normal</td>
+                    <td>[8, 37, 100, 95]</td>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Edge</td>
+                    <td>[8, 50, 300, 100]</td>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Boundary</td>
+                    <td>[8, 5, 8, 10]</td>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Invalid</td>
+                    <td>[8, 0, 0, 0]</td>
+                    <td>False</td>
+                    <td>False</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Stress</td>
+                    <td>[5000, 37, 100, 95]</td>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>Yes</td>
+                </tr>
+            </table>
+            <p>We can see this generator works well under various cases. </p>
+        </section>
+        
+        <section id="problems-section">
+            <h2>Problem Encountered during implementation:</h2>
+            <p>A problem which requires a lot of trial-and-error is cleaning and formatting the serial data from micro: bit. The system relied on serial input to process sensor readings, and incorrect cleaning has led to unusable data and errors.</p>
+            
+            <h3>Incorrect version:</h3>
+            <p>The following code removes all spaces in the string instead of selectively. This causes the different columns to be molded together, causing data destruction. Also, junk characters still exist after cleaning, which suggests the code works differently on different platforms.</p>
+            
+            <p>
+                <strong>Test Line:</strong><br>
+                <span class="code-mock">‘b 23 55 219 0 \\r\\n\\n</span>
+            </p>
+            <p>
+                <strong>Output:</strong><br>
+                <span class="code-mock">23552190\\n</span>
+            </p>
+            
+            <h3 class="success-title">Correct Code:</h3>
+            <p>I identified that the spaces only appear at the first three characters of the source string, so I used list slicing to remove it. Also, as the spaces which separate columns are preserved, I could split the columns by spaces, and assign them to variables. Also, I added a new replacing command that cleaned the “\\n” which occasionally appears at the end of string.</p>
+            
+            <p>
+                <strong>Test Line:</strong><br>
+                <span class="code-mock">‘b 23 55 219 0 \\r\\n\\n</span>
+            </p>
+            <p>
+                <strong>Output:</strong><br>
+                <span class="code-mock">23 55 219 0</span>
+            </p>
+        </section>
+        
+        <section id="model-section">
+            <h2>Purpose</h2>
+            <p>The model intends to predict the risk of wildfire occurring in a specific area, given several environmental factors.</p>
+            
+            <hr>
+            
+            <h2>Process</h2>
+            <p><strong>Input:</strong> the user input the Fine Fuel Moisture Code (FFMC), Duff Moisture Code (DMC), Drought Code (DC), Relative Humidity (RH), Temperature (temp) and month of the selected area.</p>
+            <p><strong>Calculation:</strong> the model starts with a base score of 100, then deduct scores based on threshold values for each component. For example, if temperature is greater than 40, then score is reduced by 30.</p>
+            <p><strong>Output:</strong> the model interprets if the final score represents high/moderate/low risk, based on threshold values.</p>
+            
+            <hr>
+            
+            <h2>Input/Output Sources</h2>
+            <p>An online dataset is used to model the risk. It contains a range of environmental factors and special components (ISI, burnt area) which allows me to assign a risk attribute to each row. The model is tested with data recorded by the micro: bit. The temperature and relative humidity recorded is mixed with other pre-set factors, which simulates room environment.</p>
+            
+            <hr>
+            
+            <h2>Calculation Logic</h2>
+            <ul>
+                <li>Start with full score of 100</li>
+                <li>If the month is in [June-September] / [March-May], set the initial score to 80 / 90</li>
+                <li>If the temperature is above 15 / 25/ 30, reduce 10 / 22/ 30 marks</li>
+                <li>If wind speed is above 4 / 6, reduce 3 / 9 marks</li>
+                <li>Reduce the mark by value (DC * (1/125))</li>
+                <li>Reduce the mark by value (DMC * (1/50))</li>
+                <li>If FFMC is above 80 / 90, reduce 16 / 20 marks</li>
+                <li>Round the score to 3 decimal places</li>
+            </ul>
+            
+            <hr>
+            
+            <h2>Output Explanation</h2>
+            <p>According to my dataset, I need a fair distribution of risk levels. I decided to set score &lt;= 25 be high risk and score &lt;= 50 be moderate risk, and the rest be low risk.</p>
+            
+            <h3>Distribution</h3>
+            <p>The following table:</p>
+            <table>
+                <tr>
+                    <th>Risk Level</th>
+                    <th>Count</th>
+                </tr>
+                <tr>
+                    <td>Low risk</td>
+                    <td>116</td>
+                </tr>
+                <tr>
+                    <td>Medium risk</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>High risk</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>516</strong></td>
+                </tr>
+            </table>
+            <p>According to the graph and chart, this is a fair threshold.</p>
+            
+            <hr>
+            
+            <h2>Code</h2>
+            <h3>Scoring and evaluating function</h3>
+            <h3>Distribution check</h3>
+        </section>
+        
+        
+    </body>
+    </html>

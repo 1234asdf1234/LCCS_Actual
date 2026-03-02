@@ -4,6 +4,31 @@
     height: 200px;
 }
 
+/* Styles imported from testing.html */
+        body { 
+            font-family: sans-serif; 
+            line-height: 1.6; 
+            padding: 20px; 
+            color: #333; 
+        }
+        
+        /* Table styles maintained for readability */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+
 .title_desc {
     color: white;
     float: left;
