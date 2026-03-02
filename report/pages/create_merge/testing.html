@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests</title>
+    <style>
+        /* Styles imported from problems.html */
+        body { 
+            font-family: sans-serif; 
+            line-height: 1.6; 
+            padding: 20px; 
+            color: #333; 
+        }
+
+        
+        /* Table styles maintained for readability */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <h2>Testing</h2>
+    <p>I did white-box testing for two critical parts of my code.</p>
+
+    <h3>Test 1 – Improved Model (Integration Test) </h3>
+    <p>The scoring function is integrated with the evaluation function. The scoring function takes in several environmental factors and evaluate the score, then the evaluation function outputs the risk level. Several restrictions include:</p>
+    <ul>
+        <li>Considering real-life factors, several parameters should always be positive.</li>
+        <li>To show the user an error has been made, it will return score of -1 (cannot be achieved in normal conditions) and alert “invalid parameter”. </li>
+    </ul>
+
+    <h4>Definitions:</h4>
+    <h4>Testing Code:</h4>
+    <h4>Test Table:</h4>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Data</th>
+            <th>Expected result</th>
+            <th>Actual Result</th>
+            <th>Passed</th>
+        </tr>
+        <tr>
+            <td>Negative wind speed</td>
+            <td>["jan", 2, -2.5, 34, 26.2, 92, 84.3]</td>
+            <td>Invalid arguments.</td>
+            <td>Invalid arguments.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Normal</td>
+            <td>["jul", 8.2, 6.7, 51, 26.2, 94.3, 86.2]</td>
+            <td>The final score is 54.722.<br>The model detected low risk.</td>
+            <td>The final score is 54.722.<br>The model detected low risk.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Boundary</td>
+            <td>["jan", 0, 0, 0, 0, 0, 0]</td>
+            <td>The final score is 91.0.<br>The model detected low risk.</td>
+            <td>The final score is 91.0.<br>The model detected low risk.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Negative temperature</td>
+            <td>["jul", -8.2, 6.7, 51, 26.2, 94.3, 86.2]</td>
+            <td>The final score is 54.722.<br>The model detected low risk.</td>
+            <td>The final score is 54.722.<br>The model detected low risk.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+    <p>The results are satisfying as the model can now handle different types of inputs and give reasonable responses. </p>
+
+    <h3 class="success-title">Test 2 – sample data generator (Unit Test) </h3>
+    <p>The sample data generator will take in the lines to be generated and the upper limits of factors temperature, wind and relative humidity. It writes a .csv file containing sample data to be read in AR3. </p>
+    <p>The generator must handle invalid upper boundaries by refusing to generate and being efficient enough to generate large number of lines. </p>
+    <h4>Definitions:</h4>
+    <h4>Testing Code:</h4>
+    <h4>Test Table:</h4>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Data</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Passed</th>
+        </tr>
+        <tr>
+            <td>Normal</td>
+            <td>[8, 37, 100, 95]</td>
+            <td>True</td>
+            <td>True</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Edge</td>
+            <td>[8, 50, 300, 100]</td>
+            <td>True</td>
+            <td>True</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Boundary</td>
+            <td>[8, 5, 8, 10]</td>
+            <td>True</td>
+            <td>True</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Invalid</td>
+            <td>[8, 0, 0, 0]</td>
+            <td>False</td>
+            <td>False</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Stress</td>
+            <td>[5000, 37, 100, 95]</td>
+            <td>True</td>
+            <td>True</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+    <p>We can see this generator works well under various cases. </p>
+</body>
+</html>
