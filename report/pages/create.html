@@ -56,6 +56,11 @@
             margin: 10px 0; 
         }
         
+        /* ensure images don't exceed page width */
+        img {
+            max-width: 80%;
+            height: auto;
+        }
         /* Horizontal Rule */
         hr {
             border: 0;
@@ -172,9 +177,12 @@
                 <li>Considering real-life factors, several parameters should always be positive.</li>
                 <li>To show the user an error has been made, it will return score of -1 (cannot be achieved in normal conditions) and alert “invalid parameter”. </li>
             </ul>
+            <p>I intend to test the functionality of the scoring function with error-checking functionalities such as "anyneg()" integrated.</p>
             
-            <h4>Definitions:</h4>
-            <h4>Testing Code:</h4>
+            <h4>Definitions (AR1.py):</h4>
+            <img src="../images/codeblocks/Test1_definitions.png">
+            <h4>Testing Code (Test_scoring.py):</h4>
+            <img src="../images/codeblocks/Test1_testing.png">
             <h4>Test Table:</h4>
             <table>
                 <tr>
@@ -218,8 +226,10 @@
             <h3 class="success-title">Test 2 – sample data generator (Unit Test) </h3>
             <p>The sample data generator will take in the lines to be generated and the upper limits of factors temperature, wind and relative humidity. It writes a .csv file containing sample data to be read in AR3. </p>
             <p>The generator must handle invalid upper boundaries by refusing to generate and being efficient enough to generate large number of lines. </p>
-            <h4>Definitions:</h4>
-            <h4>Testing Code:</h4>
+            <h4>Definitions (sample_readings.py):</h4>
+            <img src="../images/codeblocks/Test2_definitions.png">
+            <h4>Testing Code (Test_sample_readings.py):</h4>
+            <img src="../images/codeblocks/Test2_testing.png">
             <h4>Test Table:</h4>
             <table>
                 <tr>
@@ -275,6 +285,9 @@
             <h3 class="failure-title">Incorrect version:</h3>
             <p>The following code removes all spaces in the string instead of selectively. This causes the different columns to be molded together, causing data destruction. Also, junk characters still exist after cleaning, which suggests the code works differently on different platforms.</p>
             
+            <strong>Code:</strong><br>
+            <img src="../images/codeblocks/Problems_incorrect.png">
+
             <p>
                 <strong>Test Line:</strong><br>
                 <span class="code-mock">‘b 23 55 219 0 \\r\\n\\n</span>
@@ -287,6 +300,9 @@
             <h3 class="success-title">Correct Code:</h3>
             <p>I identified that the spaces only appear at the first three characters of the source string, so I used list slicing to remove it. Also, as the spaces which separate columns are preserved, I could split the columns by spaces, and assign them to variables. Also, I added a new replacing command that cleaned the “\\n” which occasionally appears at the end of string.</p>
             
+            <strong>Code:</strong><br>
+            <img src="../images/codeblocks/Problems_correct.png">
+
             <p>
                 <strong>Test Line:</strong><br>
                 <span class="code-mock">‘b 23 55 219 0 \\r\\n\\n</span>
@@ -330,11 +346,11 @@
             
             <hr>
             
-            <h3>Output Explanation</h3>
+            <h3>Output Explanation:</h3>
             <p>According to my dataset, I need a fair distribution of risk levels. I decided to set score &lt;= 25 be high risk and score &lt;= 50 be moderate risk, and the rest be low risk.</p>
             
-            <h3>Distribution</h3>
-            <p>The following table:</p>
+            <h3>Distribution:</h3>
+            <p>The following table and graph show the distribution of each risk score/level when evaluating the online dataset using the model:</p>
             <table>
                 <tr>
                     <th>Risk Level</th>
@@ -357,13 +373,17 @@
                     <td><strong>516</strong></td>
                 </tr>
             </table>
+            <img src="../images/graphs/risk_score_distribution.png">
             <p>According to the graph and chart, this is a fair threshold.</p>
             
             <hr>
             
-            <h3>Code</h3>
-            <h4>Scoring and evaluating function</h4>
-            <h4>Distribution check</h4>
+            <h3>Code:</h3>
+            <h4>Scoring and evaluating function:</h4>
+            <p>(The same functions tested above)</p>
+            <img src="../images/codeblocks/model_scoring.png">
+            <h4>Distribution check:</h4>
+            <img src="../images/codeblocks/model_distribution.png">
         </section>
         
         
