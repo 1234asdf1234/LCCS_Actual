@@ -13,10 +13,10 @@
     </style>
 </head>
 <body>
-
+    
     <h2>Problem Encountered during implementation:</h2>
     <p>A problem which requires a lot of trial-and-error is cleaning and formatting the serial data from micro: bit. The system relied on serial input to process sensor readings, and incorrect cleaning has led to unusable data and errors.</p>
-
+    
     <h3>Incorrect version:</h3>
     <p>The following code removes all spaces in the string instead of selectively. This causes the different columns to be molded together, causing data destruction. Also, junk characters still exist after cleaning, which suggests the code works differently on different platforms.</p>
     
@@ -28,10 +28,10 @@
         <strong>Output:</strong><br>
         <span class="code-mock">23552190\\n</span>
     </p>
-
+    
     <h3 class="success-title">Correct Code:</h3>
     <p>I identified that the spaces only appear at the first three characters of the source string, so I used list slicing to remove it. Also, as the spaces which separate columns are preserved, I could split the columns by spaces, and assign them to variables. Also, I added a new replacing command that cleaned the “\\n” which occasionally appears at the end of string.</p>
-
+    
     <p>
         <strong>Test Line:</strong><br>
         <span class="code-mock">‘b 23 55 219 0 \\r\\n\\n</span>
@@ -40,6 +40,6 @@
         <strong>Output:</strong><br>
         <span class="code-mock">23 55 219 0</span>
     </p>
-
+    
 </body>
 </html>

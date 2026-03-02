@@ -17,6 +17,33 @@
         <a href="../pages/references.html">References</a>
     </nav>
     
+    <h1>Evaluation Stage</h1>
+    <h2>1. Evaluation in Relation to the Brief</h2>
+    <p>Overall, I successfully built a system which meet the requirements.</p>
+    <p>It is able to take in both digital input (button) and analogue input (light, temperature, etc).</p>
+    <p>The system can also store the recorded information to computer via serial connection while being cleaned and validated, and it was challenging due to different behaviour of serial input under different platforms.</p>
+    <p>I was able to simulate an environment where heat rises rapidly, and the system responds effectively by beeping in different tones.</p>
+    <p>I built a model based on an online dataset to predict fire risk involving more complexity, also tested it using the data from the embedded system to prove its fairness.</p>
+    <p>With its help, I answered the “what-if” questions regarding heat and drought and received satisfying answers.</p>
+    <p>Lastly, I simulated a continuous stream of environmental data and modified the model to adapt to the ongoing changes in the values.</p>
+    
+    <h2>2. Evaluation in Relation to End User Needs</h2>
+    <p>This project meets the requirements of the stakeholders (researchers) well.</p>
+    <p>It can record the environmental data in real time and store them in an accessible format.</p>
+    <p>The stakeholders are free to analyse the patterns using the system.</p>
+    <p>On the other hand, the data types provided is limited, while proper research may need more factors.</p>
+    <p>It also fits the needs of the end users (teachers and travel organisers).</p>
+    <p>The system and model can evaluate the designated area, and alert if risk is detected.</p>
+    <p>Thus, the end users can decide whether it is appropriate to raise events such as hiking.</p>
+    <p>The downside is that some factors required by the model have to be recorded manually, which may be difficult under certain circumstances.</p>
+    
+    <h2>3. Improvements and Future Iterations</h2>
+    <p>There are some possible improvements for this project. One notable improvement is to allow add rules which handle the change in the trend of temperature.</p>
+    <p>For example, if the temperature increases rapidly from 20 &deg;C to 30 &deg;C, it will result in a larger score reduction than reaching the 30 &deg;C threshold gradually.</p>
+    <p>A possible way to implement this into the embedded system is by setting an internal timer, then update two values, past temperature and current temperature.</p>
+    <p>In the scoring function, add a rule to determine if the difference between them exceed a certain limit.</p>
+    <p>This improvement meets the requirement of simulating a real-world scenario.</p>
+    <p>Simple threshold could be considered insufficient to reflect event such as sudden warming, while the improvement takes account of this.</p>
     
     
 </body>
