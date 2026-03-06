@@ -4,11 +4,9 @@
 
 **list of TODOS:**
 
-### Write up "Evaluate"
-
-### Write up "Meeting Brief" description
-
-### Organise html
+### add a notice picture to each section of video (e.g. Basic requirement 1)
 
 ### word count
+
+
 
