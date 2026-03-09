@@ -1,2 +1,6 @@
+# no installation packs
 *.exe
+# no MacOS temp files
 .DS_Store
+# store the video in onedrive instead of github
+*.mp4
