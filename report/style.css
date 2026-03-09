@@ -84,20 +84,8 @@ iframe{
     
 }   
 
-/* Unified Table Styling */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    border: 1px solid #ddd;
+/* unify captions */
+caption {
+    font-style: italic;
 }
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    vertical-align: top;
-}
-th {
-    background-color: #f8f9fa;
-    color: #2c3e50;
-}
+
