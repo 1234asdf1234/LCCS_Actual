@@ -4,3 +4,5 @@
 .DS_Store
 # store the video in onedrive instead of github
 *.mp4
+# zips are only used for submission
+*.zip

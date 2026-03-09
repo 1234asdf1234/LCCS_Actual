@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+    <title>Evaluate</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1 class="title_desc">Leaving Cert CS Project</h1>
+        <a href="../pages/meeting_the_brief.html">Meeting the Brief</a>
+        <a href="../pages/investigation.html">Investigation</a>
+        <a href="../pages/plan_and_design.html">Plan and Design</a>
+        <a href="../pages/create.html">Create</a>
+        <a href="../pages/evaluation.html">Evaluation</a>
+        <a href="../pages/references.html">References</a>
+    </nav>
+    
+    <h1>Evaluation Stage</h1>
+    <h2>Evaluation in Relation to the Brief</h2>
+    <p>Overall, I successfully built a system which meet the requirements. It is able to take in both digital input (button) and analogue input (light, temperature, etc). One noticable success is the ability to record and store information to computer via serial connection while being cleaned and validated. Also, it was challenging due to different behaviour of serial input under different platforms. I was able to simulate an environment where heat rises rapidly, and the system responds effectively by beeping in different tones. I built a model based on an online dataset to predict fire risk involving more complexity, also tested it using the data from the embedded system to prove its fairness. With its help, I answered the “what-if” questions regarding heat and drought and received satisfying answers. Lastly, I simulated a continuous stream of environmental data and modified the model to adapt to the ongoing changes in the values.</p>
+    
+    <h2>Evaluation in Relation to End User Needs</h2>
+    <p>This project meets the requirements of the stakeholders (researchers) well. It can record the environmental data in real time and store them in an accessible format. The stakeholders are free to analyse the patterns using the system. On the other hand, the data types provided is limited, while proper research may need more factors. It also fits the needs of the end users (teachers and travel organisers). The system and model can evaluate the designated area, and alert if risk is detected. Thus, the end users can decide whether it is appropriate to raise events such as hiking. The downside is that some factors required by the model have to be recorded manually, which may be difficult under certain circumstances.</p>
+    
+    <h2>Improvements and Future Iterations</h2>
+    <p>There are some possible improvements for this project. One notable improvement is to allow add rules which handle the change in the trend of temperature. For example, if the temperature increases rapidly from 20 &deg;C to 30 &deg;C, it will result in a larger score reduction than reaching the 30 &deg;C threshold gradually. A possible way to implement this into the embedded system is by setting an internal timer, then update two values, past temperature and current temperature. In the scoring function, add a rule to determine if the difference between them exceed a certain limit. This improvement meets the requirement of simulating a real-world scenario. Simple threshold could be considered insufficient to reflect event such as sudden warming, while the improvement takes account of this.</p>    
+    
+    <h2>Word Count:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Section</th>
+                <th>Words</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0. Meeting the Brief</td>
+                <td>184</td>
+            </tr>
+            <tr>
+                <td>1. Investigation</td>
+                <td>447</td>
+            </tr>
+            <tr>
+                <td>2. Plan and Design</td>
+                <td>772</td>
+            </tr>
+            <tr>
+                <td>3. Create</td>
+                <td>851</td>
+            </tr>
+            <tr>
+                <td>4. Evaluation</td>
+                <td>413</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>2667</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

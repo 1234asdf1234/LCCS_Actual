@@ -1,0 +1,54 @@
+import AR1 as Model # use model from AR1
+
+# dummy data, peaceful condition
+# calculate its score and compare to the other two
+month = "may"
+temp = 14
+wind = 3.8
+rh = 51 # relative humidity
+dmc = 26.2 # duff
+dc = 94.3 # drought
+ffmc = 75 # flammable litter
+
+score_original = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)
+print("-----------------------------------------------")
+print("Baseline: a mild day")
+print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
+print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
+Model.scoring_evaluate(score_original)
+print("\n")
+
+# "what if severe drought occurs"
+# here the humidity and drought code will change
+dc = 800
+rh = 15
+
+score_drought = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)
+print("-----------------------------------------------")
+print("What if 1: severe drought")
+print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
+print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
+Model.scoring_evaluate(score_drought)
+print(f"Deviated by {round(score_drought-score_original, 3)}")
+print("\n")
+
+# reset arguments
+dc = 94.3
+rh = 51
+
+# "what if temperature rises drastically"
+# temperature, humidity and wind will change
+
+temp = 35
+rh = 25
+wind = 1.7
+
+score_temp = Model.scoring(month, temp, wind, rh, dmc, dc, ffmc)
+print("-----------------------------------------------")
+print("What if 2: drastic temperature rise")
+print("month\ttemp\twind\trh\tdmc\tdc\tffmc")
+print(f"{month}\t{temp}\t{wind}\t{rh}\t{dmc}\t{dc}\t{ffmc}")
+print(f"When temperature rises drastically, score is {score_temp}")
+Model.scoring_evaluate(score_temp)
+print(f"Deviated by {round(score_temp-score_original, 3)}.")
+print("\n")
